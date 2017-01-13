@@ -1,5 +1,5 @@
 
-_compiler=clang
+_compiler=gcc
 
 _realname=objfw-rel
 pkgbase=mingw-w64-${_realname}
@@ -15,8 +15,8 @@ license=("GPL")
 makedepends=("autoconf"
 			 "make"
 			 "${MINGW_PACKAGE_PREFIX}-binutils"
-			 "${MINGW_PACKAGE_PREFIX}-gcc"
-			 "${MINGW_PACKAGE_PREFIX}-clang")
+			 "${MINGW_PACKAGE_PREFIX}-gcc")
+#			 "${MINGW_PACKAGE_PREFIX}-clang")
 
 depends=("${MINGW_PACKAGE_PREFIX}-clang")
 
@@ -45,7 +45,7 @@ configure_objfw() {
 	 --enable-static \
 	 --enable-runtime \
 	 --enable-seluid24 \
-	 OBJC=clang
+	 OBJC=${_compiler}
 }
 
 build() {
